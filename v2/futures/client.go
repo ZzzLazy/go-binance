@@ -95,6 +95,7 @@ const (
 	OrderTypeTrailingStopMarket OrderType = "TRAILING_STOP_MARKET"
 
 	TimeInForceTypeGTC TimeInForceType = "GTC" // Good Till Cancel
+	TimeInForceTypeGTD TimeInForceType = "GTD" // Good Till Date
 	TimeInForceTypeIOC TimeInForceType = "IOC" // Immediate or Cancel
 	TimeInForceTypeFOK TimeInForceType = "FOK" // Fill or Kill
 	TimeInForceTypeGTX TimeInForceType = "GTX" // Good Till Crossing (Post Only)
