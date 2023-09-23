@@ -130,7 +130,6 @@ func (s *CreateOrderService) ClosePosition(closePosition bool) *CreateOrderServi
 // GoodTillDate set goodTillDate
 func (s *CreateOrderService) GoodTillDate(goodTillDate int64) *CreateOrderService {
 	s.goodTillDate = goodTillDate
-	*s.timeInForce = TimeInForceTypeGTD
 	return s
 }
 
