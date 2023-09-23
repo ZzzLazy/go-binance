@@ -28,7 +28,7 @@ type CreateOrderService struct {
 	priceProtect     *bool
 	newOrderRespType NewOrderRespType
 	closePosition    *bool
-	goodTillDate     *int64
+	goodTillDate     int64
 }
 
 // Symbol set symbol
@@ -129,7 +129,7 @@ func (s *CreateOrderService) ClosePosition(closePosition bool) *CreateOrderServi
 
 // GoodTillDate set goodTillDate
 func (s *CreateOrderService) GoodTillDate(goodTillDate int64) *CreateOrderService {
-	*s.goodTillDate = goodTillDate
+	s.goodTillDate = goodTillDate
 	*s.timeInForce = TimeInForceTypeGTD
 	return s
 }
@@ -183,8 +183,8 @@ func (s *CreateOrderService) createOrder(ctx context.Context, endpoint string, o
 	if s.closePosition != nil {
 		m["closePosition"] = *s.closePosition
 	}
-	if s.goodTillDate != nil {
-		m["goodTillDate"] = *s.goodTillDate
+	if s.goodTillDate != 0 {
+		m["goodTillDate"] = s.goodTillDate
 	}
 	r.setFormParams(m)
 	data, header, err = s.c.callAPI(ctx, r, opts...)
